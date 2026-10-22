@@ -1,0 +1,14 @@
+model,algorithm,metric,json_value,baseline_value,status
+Model 1 (Admission Triage),Decision Tree,Accuracy,0.649,0.6700 (Majority),PASS
+Model 1 (Admission Triage),Decision Tree,F1,0.1542,0.0000,PASS
+Model 2 (Patient Satisfaction),Gradient Boosting,Accuracy,0.3608,0.4095 (Majority),FLAG (Below Baseline)
+Model 3 (Claims Status),XGBoost,Accuracy,0.5103,0.5002 (Majority),PASS (Near Chance)
+Model 3 (Claims Status),XGBoost,ROC-AUC,0.5141,0.5000,PASS (Near Chance)
+Model 4 (High-Risk Stratification),Decision Tree,Accuracy,0.9563,0.5260 (Majority),CRITICAL (Circular Label)
+Model 4 (High-Risk Stratification),Decision Tree,ROC-AUC,0.9936,0.5000,CRITICAL (Circular Label)
+Model 5 (Revenue Regression),Random Forest Regressor,RMSE,82993.31,81883.15,FLAG (Negative R2)
+Model 5 (Revenue Regression),Random Forest Regressor,MAE,70959.79,70207.14,FLAG (Negative R2)
+Model 5 (Revenue Regression),Random Forest Regressor,R2,-0.0297,-0.0023,FLAG (Negative R2)
+Model 6 (Length of Stay),N/A,Feasibility,UNSUPPORTED,N/A,PASS (Honest Data Boundary)
+Clustering (Patient Segmentation),K-Means (k=3),Silhouette Score,0.3433,N/A,PASS
+Clustering (Facility Segmentation),K-Means (k=3),Silhouette Score,0.3783,N/A,PASS

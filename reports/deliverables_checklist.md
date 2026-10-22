@@ -14,7 +14,7 @@
 | **Processed Facility Operational Dataset** | `PASS` | Valid file (1,436 bytes) |
 | **Processed Patient Clustering Dataset** | `PASS` | Valid file (658,910 bytes) |
 | **Data Inventory Report** | `PASS` | Valid file (1,920 bytes) |
-| **Data Dictionary Report** | `PASS` | Valid file (13,282 bytes) |
+| **Data Dictionary Report** | `PASS` | Valid file (12,797 bytes) |
 | **ID Quality Report** | `PASS` | Valid file (738 bytes) |
 | **Data Quality Audit Report (Markdown)** | `PASS` | Valid file (5,998 bytes) |
 | **Relationship Analysis Report (Markdown)** | `PASS` | Valid file (4,509 bytes) |
@@ -60,12 +60,12 @@
 | **Experiment Metrics JSON** | `PASS` | Valid file (19,910 bytes) |
 | **Deployment Architecture Document** | `PASS` | Valid file (5,487 bytes) |
 | **Deployment Architecture Diagram (Mermaid)** | `PASS` | Valid file (2,500 bytes) |
-| **FastAPI Serving Microservice (app.py)** | `PASS` | Valid file (7,514 bytes) |
+| **FastAPI Serving Microservice (app.py)** | `PASS` | Valid file (7,249 bytes) |
 | **Production Dockerfile** | `PASS` | Valid file (1,064 bytes) |
 | **README.md** | `PASS` | Valid file (18,478 bytes) |
 | **requirements.txt** | `PASS` | Valid file (518 bytes) |
 | **pyproject.toml** | `PASS` | Valid file (966 bytes) |
-| **.gitignore** | `PASS` | Valid file (728 bytes) |
+| **.gitignore** | `PASS` | Valid file (769 bytes) |
 | **.env.example** | `PASS` | Valid file (364 bytes) |
 | **LICENSE** | `PASS` | Valid file (1,100 bytes) |
 | **Model 6: Length of Stay (LOS) Inpatient Duration** | `WARNING` | Documented as UNSUPPORTED by source data (admission/discharge timestamps absent across 27 CSVs). Correct adherence to scientific anti-fabrication standards. |

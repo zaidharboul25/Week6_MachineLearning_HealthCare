@@ -1,7 +1,7 @@
 table_name,column_name,data_type,non_null_count,null_count,null_percentage,distinct_values,is_primary_key,is_foreign_key,is_pii,sample_values
 HC_Administrative_Staff,StaffID,str,80,0,0.0,80,True,False,False,AD0001; AD0002; AD0003
-HC_Administrative_Staff,FirstName,str,80,0,0.0,10,False,False,True,Eric; Emmanuel; Aline
-HC_Administrative_Staff,LastName,str,80,0,0.0,8,False,False,True,Nsengimana; Niyonzima; Uwimana
+HC_Administrative_Staff,FirstName,str,80,0,0.0,10,False,False,True,[REDACTED_PII]
+HC_Administrative_Staff,LastName,str,80,0,0.0,8,False,False,True,[REDACTED_PII]
 HC_Administrative_Staff,Role,str,80,0,0.0,1,False,False,False,Administrative Staff
 HC_Administrative_Staff,Department,str,80,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 HC_Administrative_Staff,Specialty,str,80,0,0.0,1,False,False,False,Administrative Staff
@@ -24,18 +24,18 @@ HC_Clinical_Transactions.xlsx - Appointments,DepartmentID,str,5000,0,0.0,200,Fal
 HC_Clinical_Transactions.xlsx - Appointments,Date,str,5000,0,0.0,336,False,False,False,2026-01-07; 2026-01-14; 2026-04-15
 HC_Clinical_Transactions.xlsx - Appointments,VisitType,str,5000,0,0.0,3,False,False,False,Follow-up; Emergency; Consultation
 HC_Departments,DepartmentID,str,200,0,0.0,200,True,False,False,DEP001; DEP002; DEP003
-HC_Departments,DepartmentName,str,200,0,0.0,10,False,False,True,Emergency; Internal Medicine; Surgery
+HC_Departments,DepartmentName,str,200,0,0.0,10,False,False,True,[REDACTED_PII]
 HC_Departments,FacilityID,str,200,0,0.0,20,False,True,False,HF001; HF002; HF003
 HC_Diagnoses,DiagnosisID,str,60000,0,0.0,60000,True,False,False,DG000001; DG000002; DG000003
 HC_Diagnoses,AppointmentID,str,60000,0,0.0,60000,False,True,False,APT000001; APT000002; APT000003
 HC_Diagnoses,Diagnosis,str,60000,0,0.0,5,False,False,False,Upper Respiratory Infection; Hypertension; Gastritis
 HC_Diagnoses,Severity,str,60000,0,0.0,3,False,False,False,Moderate; Severe; Mild
 HC_Districts,DistrictID,str,30,0,0.0,30,True,False,False,D001; D002; D003
-HC_Districts,DistrictName,str,30,0,0.0,30,False,False,True,District 1; District 2; District 3
+HC_Districts,DistrictName,str,30,0,0.0,30,False,False,True,[REDACTED_PII]
 HC_Districts,ProvinceID,str,30,0,0.0,5,False,True,False,PV001; PV002; PV003
 HC_Doctor,StaffID,str,350,0,0.0,350,True,False,False,DO0001; DO0002; DO0003
-HC_Doctor,FirstName,str,350,0,0.0,10,False,False,True,Alice; Samuel; Eric
-HC_Doctor,LastName,str,350,0,0.0,8,False,False,True,Uwimana; Niyonzima; Mukamana
+HC_Doctor,FirstName,str,350,0,0.0,10,False,False,True,[REDACTED_PII]
+HC_Doctor,LastName,str,350,0,0.0,8,False,False,True,[REDACTED_PII]
 HC_Doctor,Role,str,350,0,0.0,1,False,False,False,Doctor
 HC_Doctor,Department,str,350,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 HC_Doctor,Specialty,str,350,0,0.0,10,False,False,False,Emergency Physician; Internist; General Surgeon
@@ -44,18 +44,18 @@ HC_Doctor,DepartmentID,str,350,0,0.0,200,False,True,False,DEP001; DEP002; DEP003
 HC_Doctor,YearsExperience,int64,350,0,0.0,25,False,False,False,24; 8; 22
 HC_Doctor,Status,str,350,0,0.0,1,False,False,False,Active
 HC_Facility_Master_Data.xlsx - Departments,DepartmentID,str,200,0,0.0,200,True,False,False,DEP001; DEP002; DEP003
-HC_Facility_Master_Data.xlsx - Departments,DepartmentName,str,200,0,0.0,10,False,False,True,Emergency; Internal Medicine; Surgery
+HC_Facility_Master_Data.xlsx - Departments,DepartmentName,str,200,0,0.0,10,False,False,True,[REDACTED_PII]
 HC_Facility_Master_Data.xlsx - Departments,FacilityID,str,200,0,0.0,20,False,True,False,HF001; HF002; HF003
 HC_Medical_Equipment,EquipmentID,str,200,0,0.0,200,True,False,False,EQ0001; EQ0002; EQ0003
-HC_Medical_Equipment,EquipmentName,str,200,0,0.0,10,False,False,True,Emergency Equipment; Internal Medicine Equipment; Surgery Equipment
+HC_Medical_Equipment,EquipmentName,str,200,0,0.0,10,False,False,True,[REDACTED_PII]
 HC_Medical_Equipment,DepartmentID,str,200,0,0.0,200,False,True,False,DEP001; DEP002; DEP003
 HC_Medical_Equipment,FacilityID,str,200,0,0.0,20,False,True,False,HF001; HF002; HF003
 HC_Medical_Specialties,SpecialtyID,str,200,0,0.0,200,True,False,False,SP001; SP002; SP003
 HC_Medical_Specialties,Specialty,str,200,0,0.0,10,False,False,False,Emergency Physician; Internist; General Surgeon
 HC_Medical_Specialties,DepartmentID,str,200,0,0.0,200,False,True,False,DEP001; DEP002; DEP003
 HC_Nurse,StaffID,str,700,0,0.0,700,True,False,False,NU0001; NU0002; NU0003
-HC_Nurse,FirstName,str,700,0,0.0,10,False,False,True,Alice; Samuel; Aline
-HC_Nurse,LastName,str,700,0,0.0,8,False,False,True,Nsengimana; Hakizimana; Uwimana
+HC_Nurse,FirstName,str,700,0,0.0,10,False,False,True,[REDACTED_PII]
+HC_Nurse,LastName,str,700,0,0.0,8,False,False,True,[REDACTED_PII]
 HC_Nurse,Role,str,700,0,0.0,1,False,False,False,Nurse
 HC_Nurse,Department,str,700,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 HC_Nurse,Specialty,str,700,0,0.0,1,False,False,False,Nurse
@@ -70,10 +70,10 @@ HC_Patient_Feedback,AppointmentID,str,21064,0,0.0,21064,False,True,False,APT0000
 HC_Patient_Feedback,Rating,int64,21064,0,0.0,5,False,False,False,1; 4; 2
 HC_Patient_Feedback,Comment,str,21064,0,0.0,4,False,False,False,Poor; Excellent; Good
 HC_Patients,PatientID,str,20000,0,0.0,20000,True,False,False,PAT00001; PAT00002; PAT00003
-HC_Patients,FirstName,str,20000,0,0.0,12,False,False,True,Patrick; Emmanuel; Jean
-HC_Patients,LastName,str,20000,0,0.0,10,False,False,True,Uwimana; Nsengimana; Habimana
+HC_Patients,FirstName,str,20000,0,0.0,12,False,False,True,[REDACTED_PII]
+HC_Patients,LastName,str,20000,0,0.0,10,False,False,True,[REDACTED_PII]
 HC_Patients,Gender,str,20000,0,0.0,2,False,False,False,Female; Male
-HC_Patients,DateOfBirth,str,20000,0,0.0,91,False,False,True,1/1/2007; 1/1/2015; 1/1/1989
+HC_Patients,DateOfBirth,str,20000,0,0.0,91,False,False,True,[REDACTED_PII]
 HC_Patients,Age,int64,20000,0,0.0,91,False,False,False,19; 11; 37
 HC_Patients,MaritalStatus,str,20000,0,0.0,3,False,False,False,Single; Widowed; Married
 HC_Patients,Occupation,str,20000,0,0.0,8,False,False,False,Farmer; Civil Servant; Student
@@ -84,8 +84,8 @@ HC_Patients,BloodGroup,str,20000,0,0.0,7,False,False,False,AB+; O-; B+
 HC_Patients,HeightCm,int64,20000,0,0.0,51,False,False,False,153; 143; 183
 HC_Patients,WeightKg,int64,20000,0,0.0,81,False,False,False,44; 113; 63
 HC_Patients,ChronicCondition,str,14929,5071,25.36,3,False,False,False,Asthma; Diabetes; Hypertension
-HC_Patients,Phone,float64,20000,0,0.0,10,False,False,True,250788000000.0; 250782000000.0; 250784000000.0
-HC_Patients,EmergencyContact,str,20000,0,0.0,120,False,False,True,Patrick Mukamana; Grace Uwimana; Aline Mukamana
+HC_Patients,Phone,float64,20000,0,0.0,10,False,False,True,[REDACTED_PII]
+HC_Patients,EmergencyContact,str,20000,0,0.0,120,False,False,True,[REDACTED_PII]
 HC_Patients,Status,str,20000,0,0.0,1,False,False,False,Active
 HC_Patients,BMI,float64,20000,0,0.0,482,False,False,False,18.8; 55.3; 39.9
 HC_Payments,PaymentID,str,60000,0,0.0,60000,True,False,False,PAY000001; PAY000002; PAY000003
@@ -93,11 +93,11 @@ HC_Payments,BillingID,str,60000,0,0.0,60000,False,True,False,BIL000001; BIL00000
 HC_Payments,AmountPaid,int64,60000,0,0.0,54022,False,True,False,89275; 64131; 222301
 HC_Payments,Method,str,60000,0,0.0,4,False,False,False,Insurance; Mobile Money; Card
 HC_Provinces,ProvinceID,str,5,0,0.0,5,True,False,False,PV001; PV002; PV003
-HC_Provinces,ProvinceName,str,5,0,0.0,5,False,False,True,Kigali City; Eastern; Northern
+HC_Provinces,ProvinceName,str,5,0,0.0,5,False,False,True,[REDACTED_PII]
 HC_Provinces,CountryID,str,5,0,0.0,1,False,True,False,RW001
 HC_Radiographer,StaffID,str,30,0,0.0,30,True,False,False,RA0001; RA0002; RA0003
-HC_Radiographer,FirstName,str,30,0,0.0,10,False,False,True,Alice; Grace; Diane
-HC_Radiographer,LastName,str,30,0,0.0,8,False,False,True,Mugisha; Hakizimana; Uwera
+HC_Radiographer,FirstName,str,30,0,0.0,10,False,False,True,[REDACTED_PII]
+HC_Radiographer,LastName,str,30,0,0.0,8,False,False,True,[REDACTED_PII]
 HC_Radiographer,Role,str,30,0,0.0,1,False,False,False,Radiographer
 HC_Radiographer,Department,str,30,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 HC_Radiographer,Specialty,str,30,0,0.0,1,False,False,False,Radiographer
@@ -111,18 +111,18 @@ HC_Revenue_Summary,Appointments,int64,12,0,0.0,12,False,False,False,6979; 5299; 
 HC_Rooms,RoomID,str,400,0,0.0,400,True,False,False,RM0001; RM0002; RM0003
 HC_Rooms,DepartmentID,str,400,0,0.0,200,False,True,False,DEP001; DEP002; DEP003
 HC_Rooms,FacilityID,str,400,0,0.0,20,False,True,False,HF001; HF002; HF003
-HC_Rooms,RoomName,str,400,0,0.0,20,False,False,True,Emergency Room 1; Emergency Room 2; Internal Medicine Room 1
+HC_Rooms,RoomName,str,400,0,0.0,20,False,False,True,[REDACTED_PII]
 HC_Sectors,SectorID,str,120,0,0.0,120,True,False,False,S001; S002; S003
-HC_Sectors,SectorName,str,120,0,0.0,120,False,False,True,Sector 1; Sector 2; Sector 3
+HC_Sectors,SectorName,str,120,0,0.0,120,False,False,True,[REDACTED_PII]
 HC_Sectors,DistrictID,str,120,0,0.0,30,False,True,False,D001; D002; D003
 HC_Services,ServiceID,str,400,0,0.0,400,True,False,False,SER0001; SER0002; SER0003
-HC_Services,ServiceName,str,400,0,0.0,20,False,False,True,Emergency Consultation; Emergency Procedure; Internal Medicine Consultation
+HC_Services,ServiceName,str,400,0,0.0,20,False,False,True,[REDACTED_PII]
 HC_Services,DepartmentID,str,400,0,0.0,200,False,True,False,DEP001; DEP002; DEP003
 HC_Villages,VillageID,str,480,0,0.0,480,True,False,False,V0001; V0002; V0003
-HC_Villages,VillageName,str,480,0,0.0,480,False,False,True,Village 1; Village 2; Village 3
+HC_Villages,VillageName,str,480,0,0.0,480,False,False,True,[REDACTED_PII]
 HC_Villages,SectorID,str,480,0,0.0,120,False,True,False,S001; S002; S003
 HCCountries,CountryID,str,1,0,0.0,1,True,False,False,RW001
-HCCountries,CountryName,str,1,0,0.0,1,False,False,True,Rwanda
+HCCountries,CountryName,str,1,0,0.0,1,False,False,True,[REDACTED_PII]
 HCCountries,ISO2,str,1,0,0.0,1,False,False,False,RW
 HCCountries,ISO3,str,1,0,0.0,1,False,False,False,RWA
 HCCountries,Currency,str,1,0,0.0,1,False,False,False,RWF
@@ -133,8 +133,8 @@ Insurance_Claims,Provider,str,42036,0,0.0,4,False,True,False,RSSB; Private; MMI
 Insurance_Claims,ClaimAmount,float64,42036,0,0.0,42003,False,False,False,83567.22; 45275.9; 115051.57
 Insurance_Claims,Status,str,42036,0,0.0,2,False,False,False,Approved; Pending
 Laboratory_Scientist,StaffID,str,40,0,0.0,40,True,False,False,LA0001; LA0002; LA0003
-Laboratory_Scientist,FirstName,str,40,0,0.0,10,False,False,True,Eric; Alice; Emmanuel
-Laboratory_Scientist,LastName,str,40,0,0.0,8,False,False,True,Uwera; Mukamana; Uwimana
+Laboratory_Scientist,FirstName,str,40,0,0.0,10,False,False,True,[REDACTED_PII]
+Laboratory_Scientist,LastName,str,40,0,0.0,8,False,False,True,[REDACTED_PII]
 Laboratory_Scientist,Role,str,40,0,0.0,1,False,False,False,Laboratory Scientist
 Laboratory_Scientist,Department,str,40,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 Laboratory_Scientist,Specialty,str,40,0,0.0,1,False,False,False,Laboratory Scientist
@@ -143,8 +143,8 @@ Laboratory_Scientist,DepartmentID,str,40,0,0.0,40,False,True,False,DEP001; DEP00
 Laboratory_Scientist,YearsExperience,int64,40,0,0.0,16,False,False,False,25; 8; 2
 Laboratory_Scientist,Status,str,40,0,0.0,1,False,False,False,Active
 Pharmacist,StaffID,str,50,0,0.0,50,True,False,False,PH0001; PH0002; PH0003
-Pharmacist,FirstName,str,50,0,0.0,10,False,False,True,Alice; Aline; Patrick
-Pharmacist,LastName,str,50,0,0.0,8,False,False,True,Mukamana; Uwera; Habimana
+Pharmacist,FirstName,str,50,0,0.0,10,False,False,True,[REDACTED_PII]
+Pharmacist,LastName,str,50,0,0.0,8,False,False,True,[REDACTED_PII]
 Pharmacist,Role,str,50,0,0.0,1,False,False,False,Pharmacist
 Pharmacist,Department,str,50,0,0.0,10,False,False,False,Emergency; Internal Medicine; Surgery
 Pharmacist,Specialty,str,50,0,0.0,1,False,False,False,Pharmacist

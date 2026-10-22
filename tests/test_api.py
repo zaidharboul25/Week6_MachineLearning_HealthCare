@@ -66,3 +66,30 @@ def test_predict_billing_endpoint():
     assert data["predicted_billing_amount_rwf"] > 0
     assert data["confidence_interval_lower_rwf"] <= data["predicted_billing_amount_rwf"]
     assert data["confidence_interval_upper_rwf"] >= data["predicted_billing_amount_rwf"]
+
+def test_predict_claims_invalid_input():
+    """Verify input validation rejects negative claim amount with 422."""
+    payload = {
+        "Provider": "RSSB",
+        "ClaimAmount": -5000.0,
+        "BillingAmount": 10000.0
+    }
+    response = client.post("/predict/claims", json=payload)
+    assert response.status_code == 422
+    data = response.json()
+    assert "detail" in data
+
+def test_predict_missing_model_behavior():
+    """Verify missing model returns 503 without revealing server internals."""
+    from deployment.app import models
+    models.clear()
+    payload = {
+        "Provider": "RSSB",
+        "ClaimAmount": 5000.0,
+        "BillingAmount": 10000.0
+    }
+    response = client.post("/predict/claims", json=payload)
+    assert response.status_code == 503
+    assert response.json()["detail"] == "Claims model unavailable"
+    # Reload for subsequent tests
+    load_models()

@@ -27,21 +27,13 @@ logger = logging.getLogger("healthconnect-api")
 
 # Directory paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-ARTIFACTS_DIR = BASE_DIR / "artifacts"
+from contextlib import asynccontextmanager
 
-# Initialize FastAPI application
-app = FastAPI(
-    title="HealthConnect Rwanda ML Inference Service",
-    description="Enterprise Machine Learning Serving Layer for Healthcare Analytics & Decision Support",
-    version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc"
-)
+ARTIFACTS_DIR = BASE_DIR / "artifacts"
 
 # Global model store
 models: Dict[str, Any] = {}
 
-@app.on_event("startup")
 def load_models():
     """Load serialized model pipelines on server startup."""
     logger.info("Initializing HealthConnect model pipelines...")
@@ -69,6 +61,21 @@ def load_models():
     except Exception as e:
         logger.error(f"Error loading models: {e}")
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    load_models()
+    yield
+
+# Initialize FastAPI application
+app = FastAPI(
+    title="HealthConnect Rwanda ML Inference Service",
+    description="Enterprise Machine Learning Serving Layer for Healthcare Analytics & Decision Support",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    lifespan=lifespan
+)
+
 # ----------------------------------------------------------------------
 # Pydantic Schemas for Input Validation & Serialization
 # ----------------------------------------------------------------------
@@ -79,9 +86,9 @@ class HealthResponse(BaseModel):
     environment: str
 
 class ClaimsPredictionRequest(BaseModel):
-    Provider: str = Field(..., example="RSSB", description="Insurance provider (RSSB, Radiant, MMI, Private)")
-    ClaimAmount: float = Field(..., gt=0, example=85000.0, description="Requested reimbursement amount in RWF")
-    BillingAmount: float = Field(..., gt=0, example=90000.0, description="Total hospital invoiced billing amount in RWF")
+    Provider: str = Field(..., description="Insurance provider (RSSB, Radiant, MMI, Private)")
+    ClaimAmount: float = Field(..., gt=0, description="Requested reimbursement amount in RWF")
+    BillingAmount: float = Field(..., gt=0, description="Total hospital invoiced billing amount in RWF")
 
 class ClaimsPredictionResponse(BaseModel):
     prediction_label: str
@@ -90,25 +97,25 @@ class ClaimsPredictionResponse(BaseModel):
     recommendation: str
 
 class BillingPredictionRequest(BaseModel):
-    Age: int = Field(..., ge=0, le=120, example=45)
-    BMI: float = Field(..., ge=10.0, le=60.0, example=24.5)
-    DoctorExperience: int = Field(..., ge=0, le=50, example=12)
-    FacilityApptVolume: int = Field(..., ge=0, example=250)
-    PatientToDoctorRatio: float = Field(..., ge=0, example=14.5)
-    BedToDoctorRatio: float = Field(..., ge=0, example=6.2)
-    DepartmentWorkload: int = Field(..., ge=0, example=45)
-    Month: int = Field(..., ge=1, le=12, example=4)
-    VisitType: str = Field(..., example="Consultation")
-    Diagnosis: str = Field(..., example="Hypertension")
-    Severity: str = Field(..., example="Moderate")
-    Gender: str = Field(..., example="Female")
-    MaritalStatus: str = Field(..., example="Married")
-    Occupation: str = Field(..., example="Teacher")
-    Education: str = Field(..., example="University")
-    InsuranceID: str = Field(..., example="INS001")
-    ChronicCondition: str = Field(..., example="Hypertension")
-    DepartmentName: str = Field(..., example="Internal Medicine")
-    ProvinceName: str = Field(..., example="Kigali City")
+    Age: int = Field(..., ge=0, le=120)
+    BMI: float = Field(..., ge=10.0, le=60.0)
+    DoctorExperience: int = Field(..., ge=0, le=50)
+    FacilityApptVolume: int = Field(..., ge=0)
+    PatientToDoctorRatio: float = Field(..., ge=0)
+    BedToDoctorRatio: float = Field(..., ge=0)
+    DepartmentWorkload: int = Field(..., ge=0)
+    Month: int = Field(..., ge=1, le=12)
+    VisitType: str = Field(...)
+    Diagnosis: str = Field(...)
+    Severity: str = Field(...)
+    Gender: str = Field(...)
+    MaritalStatus: str = Field(...)
+    Occupation: str = Field(...)
+    Education: str = Field(...)
+    InsuranceID: str = Field(...)
+    ChronicCondition: str = Field(...)
+    DepartmentName: str = Field(...)
+    ProvinceName: str = Field(...)
 
 class BillingPredictionResponse(BaseModel):
     predicted_billing_amount_rwf: float

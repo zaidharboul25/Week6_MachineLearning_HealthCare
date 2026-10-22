@@ -84,14 +84,17 @@ def profile_dataset(file_path: Path) -> Tuple[Dict[str, Any], List[Dict[str, Any
         null_col_pct = round((null_count / num_rows * 100), 2) if num_rows > 0 else 0.0
         n_unique = int(series.nunique())
         
-        # sample values
-        samples = series.dropna().unique()[:3]
-        samples_str = "; ".join([str(s) for s in samples]) if len(samples) > 0 else "None"
-        
         # Inferred semantics
         is_pk = (col == candidate_pk)
         is_fk = ("id" in col.lower() and col != candidate_pk)
         is_pii = any(k in col.lower() for k in PII_KEYWORDS)
+
+        # sample values (strictly redact PII to preserve patient and staff confidentiality)
+        if is_pii:
+            samples_str = "[REDACTED_PII]"
+        else:
+            samples = series.dropna().unique()[:3]
+            samples_str = "; ".join([str(s) for s in samples]) if len(samples) > 0 else "None"
 
         col_summaries.append({
             "table_name": file_path.stem,
