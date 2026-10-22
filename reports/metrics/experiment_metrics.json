@@ -1,0 +1,623 @@
+{
+  "classification": {
+    "Model 1: Admission Triage": {
+      "best_algorithm": "Decision Tree",
+      "algorithms": {
+        "Logistic Regression": {
+          "accuracy": 0.67,
+          "precision": 0.5,
+          "recall": 0.003,
+          "f1": 0.006,
+          "roc_auc": 0.4802
+        },
+        "Decision Tree": {
+          "accuracy": 0.649,
+          "precision": 0.3765,
+          "recall": 0.097,
+          "f1": 0.1542,
+          "roc_auc": 0.5357
+        },
+        "Random Forest": {
+          "accuracy": 0.67,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.4814
+        },
+        "Gradient Boosting": {
+          "accuracy": 0.645,
+          "precision": 0.2727,
+          "recall": 0.0455,
+          "f1": 0.0779,
+          "roc_auc": 0.4736
+        },
+        "XGBoost": {
+          "accuracy": 0.654,
+          "precision": 0.3333,
+          "recall": 0.0485,
+          "f1": 0.0847,
+          "roc_auc": 0.4842
+        }
+      }
+    },
+    "Model 2: Patient Satisfaction": {
+      "best_algorithm": "Gradient Boosting",
+      "algorithms": {
+        "Logistic Regression": {
+          "accuracy": 0.3636,
+          "precision": 0.3612,
+          "recall": 0.3636,
+          "f1": 0.3357,
+          "roc_auc": 0.48
+        },
+        "Decision Tree": {
+          "accuracy": 0.3551,
+          "precision": 0.2951,
+          "recall": 0.3551,
+          "f1": 0.2947,
+          "roc_auc": 0.467
+        },
+        "Random Forest": {
+          "accuracy": 0.3835,
+          "precision": 0.5166,
+          "recall": 0.3835,
+          "f1": 0.3354,
+          "roc_auc": 0.4467
+        },
+        "Gradient Boosting": {
+          "accuracy": 0.3608,
+          "precision": 0.3356,
+          "recall": 0.3608,
+          "f1": 0.3401,
+          "roc_auc": 0.4593
+        },
+        "XGBoost": {
+          "accuracy": 0.3551,
+          "precision": 0.3295,
+          "recall": 0.3551,
+          "f1": 0.3316,
+          "roc_auc": 0.4537
+        }
+      }
+    },
+    "Model 3: Insurance Claim Status": {
+      "best_algorithm": "Decision Tree",
+      "algorithms": {
+        "Logistic Regression": {
+          "accuracy": 0.5013,
+          "precision": 0.5014,
+          "recall": 0.377,
+          "f1": 0.4304,
+          "roc_auc": 0.5058
+        },
+        "Decision Tree": {
+          "accuracy": 0.5011,
+          "precision": 0.5005,
+          "recall": 0.7787,
+          "f1": 0.6094,
+          "roc_auc": 0.5044
+        },
+        "Random Forest": {
+          "accuracy": 0.5065,
+          "precision": 0.5063,
+          "recall": 0.504,
+          "f1": 0.5052,
+          "roc_auc": 0.512
+        },
+        "Gradient Boosting": {
+          "accuracy": 0.5051,
+          "precision": 0.5051,
+          "recall": 0.4812,
+          "f1": 0.4929,
+          "roc_auc": 0.5077
+        },
+        "XGBoost": {
+          "accuracy": 0.5103,
+          "precision": 0.5102,
+          "recall": 0.5071,
+          "f1": 0.5087,
+          "roc_auc": 0.5141
+        }
+      }
+    },
+    "Model 4: High-Risk Patient Stratification": {
+      "best_algorithm": "Decision Tree",
+      "algorithms": {
+        "Logistic Regression": {
+          "accuracy": 0.8682,
+          "precision": 0.8635,
+          "recall": 0.8902,
+          "f1": 0.8767,
+          "roc_auc": 0.939
+        },
+        "Decision Tree": {
+          "accuracy": 0.9563,
+          "precision": 0.9949,
+          "recall": 0.9216,
+          "f1": 0.9568,
+          "roc_auc": 0.9936
+        },
+        "Random Forest": {
+          "accuracy": 0.9533,
+          "precision": 0.98,
+          "recall": 0.9301,
+          "f1": 0.9544,
+          "roc_auc": 0.9939
+        },
+        "Gradient Boosting": {
+          "accuracy": 0.9557,
+          "precision": 0.9908,
+          "recall": 0.9244,
+          "f1": 0.9565,
+          "roc_auc": 0.9936
+        },
+        "XGBoost": {
+          "accuracy": 0.956,
+          "precision": 0.9944,
+          "recall": 0.9216,
+          "f1": 0.9566,
+          "roc_auc": 0.9942
+        }
+      }
+    }
+  },
+  "regression": {
+    "Baseline (Dummy Mean)": {
+      "rmse": 81883.15,
+      "mae": 70207.14,
+      "r2": -0.0023,
+      "mape": 113.97
+    },
+    "Linear Regression (Ridge)": {
+      "rmse": 83280.49,
+      "mae": 71360.72,
+      "r2": -0.0368,
+      "mape": 114.92
+    },
+    "Random Forest Regressor": {
+      "rmse": 82993.31,
+      "mae": 70959.79,
+      "r2": -0.0297,
+      "mape": 114.27
+    },
+    "Gradient Boosting Regressor": {
+      "rmse": 84641.48,
+      "mae": 71690.13,
+      "r2": -0.071,
+      "mape": 116.7
+    },
+    "XGBoost Regressor": {
+      "rmse": 84304.58,
+      "mae": 71647.73,
+      "r2": -0.0624,
+      "mape": 116.66
+    }
+  },
+  "clustering": {
+    "patient_segmentation": {
+      "silhouette": 0.3433,
+      "k": 3,
+      "k_evaluations": {
+        "2": 0.4389,
+        "3": 0.3433,
+        "4": 0.2945,
+        "5": 0.3277
+      },
+      "personas": {
+        "0": {
+          "name": "Cluster 0: Low-Risk / Preventive Outpatients",
+          "description": "Younger cohort (mean age ~35), normal BMI, minimal chronic conditions, low appointment frequency and lower average billing. Needs preventive screenings and digital wellness support."
+        },
+        "1": {
+          "name": "Cluster 1: Chronic Multimorbidity / High-Care Seniors",
+          "description": "Elderly population (mean age ~65+), high chronic disease prevalence (Hypertension, Diabetes), multiple specialist appointments, and high diagnostic severity. Requires proactive chronic disease management and home-care follow-up."
+        },
+        "2": {
+          "name": "Cluster 2: Working-Age Moderate Utilizers / Metabolic Risk",
+          "description": "Adult cohort (mean age ~48) with elevated BMI and moderate acute care utilization. Target for lifestyle intervention, hypertension screening, and dietary guidance."
+        }
+      }
+    },
+    "facility_segmentation": {
+      "silhouette": 0.3783,
+      "tier_personas": {
+        "0": {
+          "tier": "Tier 1: High-Volume Referral & Teaching Centers",
+          "strategy": "Requires expansion of specialized ICU and surgical bed capacity, automated queuing, and sub-specialty physician staffing."
+        },
+        "1": {
+          "tier": "Tier 2: Standard District Community Hospitals",
+          "strategy": "Balanced clinical operations. Focus on strengthening diagnostic imaging, emergency response, and nursing staff retention."
+        },
+        "2": {
+          "tier": "Tier 3: Outpatient-Centric Primary Health Centers",
+          "strategy": "Optimize doctor scheduling, enhance telemedicine consultation linkages with referral hubs, and streamline basic pharmaceuticals."
+        }
+      }
+    }
+  },
+  "anomaly_detection": {
+    "billing_anomalies_count": 49,
+    "billing_anomalies_pct": 0.98,
+    "claim_anomalies_count": 211,
+    "claim_anomalies_pct": 0.5,
+    "duplicate_patients_count": 20000,
+    "df_billing_sample": [
+      {
+        "AppointmentID": "APT000101",
+        "FacilityID": "HF019",
+        "DepartmentID": "DEP169",
+        "VisitType": "Follow-up",
+        "Amount": 298999,
+        "Diagnosis": "Upper Respiratory Infection",
+        "Severity": "Severe",
+        "Age": 18,
+        "Gender": "Male",
+        "MaritalStatus": "Widowed",
+        "Occupation": "Engineer",
+        "Education": "Secondary",
+        "InsuranceID": "INS001",
+        "BloodGroup": "B-",
+        "BMI": 41.9,
+        "ChronicCondition": "Asthma",
+        "DistrictName": "District 26",
+        "ProvinceName": "Kigali City",
+        "DepartmentName": "ICU",
+        "DoctorExperience": 22,
+        "FacilityApptVolume": 217,
+        "FacilityDoctorCount": 17,
+        "FacilityRoomCount": 20,
+        "FacilityBedCount": 100,
+        "PatientToDoctorRatio": 12.76,
+        "BedToDoctorRatio": 5.88,
+        "AgeGroup": "18-35",
+        "BMICategory": "Obese",
+        "HasChronicCondition": 1,
+        "Month": 12,
+        "DayOfWeek": 5,
+        "Quarter": 4,
+        "IsWeekend": 1,
+        "DepartmentWorkload": 27,
+        "IsEmergencyVisit": 0,
+        "AnomalyScore": -1,
+        "AnomalyFlag": true,
+        "AnomalyReason": "Multivariate / Distributional Outlier in Transaction Density",
+        "ReviewAction": "Route to Internal Medical Billing Audit Queue for Clinical Itemization Review"
+      },
+      {
+        "AppointmentID": "APT000125",
+        "FacilityID": "HF008",
+        "DepartmentID": "DEP089",
+        "VisitType": "Consultation",
+        "Amount": 299699,
+        "Diagnosis": "Gastritis",
+        "Severity": "Severe",
+        "Age": 27,
+        "Gender": "Female",
+        "MaritalStatus": "Single",
+        "Occupation": "Nurse",
+        "Education": "Master",
+        "InsuranceID": "INS004",
+        "BloodGroup": "A-",
+        "BMI": 16.1,
+        "ChronicCondition": NaN,
+        "DistrictName": "District 28",
+        "ProvinceName": "Northern",
+        "DepartmentName": "ICU",
+        "DoctorExperience": 5,
+        "FacilityApptVolume": 257,
+        "FacilityDoctorCount": 18,
+        "FacilityRoomCount": 20,
+        "FacilityBedCount": 100,
+        "PatientToDoctorRatio": 14.28,
+        "BedToDoctorRatio": 5.56,
+        "AgeGroup": "18-35",
+        "BMICategory": "Underweight",
+        "HasChronicCondition": 0,
+        "Month": 9,
+        "DayOfWeek": 3,
+        "Quarter": 3,
+        "IsWeekend": 0,
+        "DepartmentWorkload": 30,
+        "IsEmergencyVisit": 0,
+        "AnomalyScore": -1,
+        "AnomalyFlag": true,
+        "AnomalyReason": "Multivariate / Distributional Outlier in Transaction Density",
+        "ReviewAction": "Route to Internal Medical Billing Audit Queue for Clinical Itemization Review"
+      },
+      {
+        "AppointmentID": "APT000155",
+        "FacilityID": "HF001",
+        "DepartmentID": "DEP179",
+        "VisitType": "Consultation",
+        "Amount": 11494,
+        "Diagnosis": "Hypertension",
+        "Severity": "Mild",
+        "Age": 1,
+        "Gender": "Female",
+        "MaritalStatus": "Single",
+        "Occupation": "Nurse",
+        "Education": "Primary",
+        "InsuranceID": "INS009",
+        "BloodGroup": "O+",
+        "BMI": 49.1,
+        "ChronicCondition": "Asthma",
+        "DistrictName": "District 19",
+        "ProvinceName": "Southern",
+        "DepartmentName": "ICU",
+        "DoctorExperience": 4,
+        "FacilityApptVolume": 273,
+        "FacilityDoctorCount": 18,
+        "FacilityRoomCount": 20,
+        "FacilityBedCount": 100,
+        "PatientToDoctorRatio": 15.17,
+        "BedToDoctorRatio": 5.56,
+        "AgeGroup": "<18",
+        "BMICategory": "Obese",
+        "HasChronicCondition": 1,
+        "Month": 5,
+        "DayOfWeek": 2,
+        "Quarter": 2,
+        "IsWeekend": 0,
+        "DepartmentWorkload": 22,
+        "IsEmergencyVisit": 0,
+        "AnomalyScore": -1,
+        "AnomalyFlag": true,
+        "AnomalyReason": "Multivariate / Distributional Outlier in Transaction Density",
+        "ReviewAction": "Route to Internal Medical Billing Audit Queue for Clinical Itemization Review"
+      },
+      {
+        "AppointmentID": "APT000311",
+        "FacilityID": "HF005",
+        "DepartmentID": "DEP160",
+        "VisitType": "Emergency",
+        "Amount": 10859,
+        "Diagnosis": "Upper Respiratory Infection",
+        "Severity": "Moderate",
+        "Age": 49,
+        "Gender": "Male",
+        "MaritalStatus": "Single",
+        "Occupation": "Nurse",
+        "Education": "Bachelor",
+        "InsuranceID": "INS013",
+        "BloodGroup": "A-",
+        "BMI": 16.7,
+        "ChronicCondition": NaN,
+        "DistrictName": "District 27",
+        "ProvinceName": "Eastern",
+        "DepartmentName": "Cardiology",
+        "DoctorExperience": 2,
+        "FacilityApptVolume": 223,
+        "FacilityDoctorCount": 18,
+        "FacilityRoomCount": 20,
+        "FacilityBedCount": 100,
+        "PatientToDoctorRatio": 12.39,
+        "BedToDoctorRatio": 5.56,
+        "AgeGroup": "36-50",
+        "BMICategory": "Underweight",
+        "HasChronicCondition": 0,
+        "Month": 7,
+        "DayOfWeek": 6,
+        "Quarter": 3,
+        "IsWeekend": 1,
+        "DepartmentWorkload": 32,
+        "IsEmergencyVisit": 1,
+        "AnomalyScore": -1,
+        "AnomalyFlag": true,
+        "AnomalyReason": "Multivariate / Distributional Outlier in Transaction Density",
+        "ReviewAction": "Route to Internal Medical Billing Audit Queue for Clinical Itemization Review"
+      },
+      {
+        "AppointmentID": "APT000326",
+        "FacilityID": "HF006",
+        "DepartmentID": "DEP187",
+        "VisitType": "Emergency",
+        "Amount": 299150,
+        "Diagnosis": "Gastritis",
+        "Severity": "Severe",
+        "Age": 29,
+        "Gender": "Female",
+        "MaritalStatus": "Widowed",
+        "Occupation": "Nurse",
+        "Education": "Diploma",
+        "InsuranceID": "INS012",
+        "BloodGroup": "B-",
+        "BMI": 18.9,
+        "ChronicCondition": "Hypertension",
+        "DistrictName": "District 15",
+        "ProvinceName": "Western",
+        "DepartmentName": "Laboratory",
+        "DoctorExperience": 8,
+        "FacilityApptVolume": 269,
+        "FacilityDoctorCount": 18,
+        "FacilityRoomCount": 20,
+        "FacilityBedCount": 100,
+        "PatientToDoctorRatio": 14.94,
+        "BedToDoctorRatio": 5.56,
+        "AgeGroup": "18-35",
+        "BMICategory": "Normal",
+        "HasChronicCondition": 1,
+        "Month": 3,
+        "DayOfWeek": 6,
+        "Quarter": 1,
+        "IsWeekend": 1,
+        "DepartmentWorkload": 25,
+        "IsEmergencyVisit": 1,
+        "AnomalyScore": -1,
+        "AnomalyFlag": true,
+        "AnomalyReason": "Multivariate / Distributional Outlier in Transaction Density",
+        "ReviewAction": "Route to Internal Medical Billing Audit Queue for Clinical Itemization Review"
+      }
+    ],
+    "df_claim_sample": [
+      {
+        "ClaimID": "CLM000202",
+        "BillingID": "BIL000291",
+        "Provider": "Private",
+        "ClaimAmount": 282220.88,
+        "Status": "Approved",
+        "BillingAmount": 293239,
+        "ClaimToBillingRatio": 0.9624,
+        "ClaimDiff": 11018.12,
+        "IsFullClaim": 0,
+        "TargetStatus": 1,
+        "ClaimAnomalyFlag": true,
+        "ClaimAnomalyReason": "Claim amount in extreme top 0.5% percentile (> 279,450 RWF)",
+        "ReviewWorkflow": "Hold Claim: Reconcile with Hospital Electronic Charge Sheet"
+      },
+      {
+        "ClaimID": "CLM000839",
+        "BillingID": "BIL001187",
+        "Provider": "RSSB",
+        "ClaimAmount": 290890.21,
+        "Status": "Approved",
+        "BillingAmount": 292925,
+        "ClaimToBillingRatio": 0.9931,
+        "ClaimDiff": 2034.79,
+        "IsFullClaim": 0,
+        "TargetStatus": 1,
+        "ClaimAnomalyFlag": true,
+        "ClaimAnomalyReason": "Claim amount in extreme top 0.5% percentile (> 279,450 RWF)",
+        "ReviewWorkflow": "Hold Claim: Reconcile with Hospital Electronic Charge Sheet"
+      },
+      {
+        "ClaimID": "CLM000900",
+        "BillingID": "BIL001276",
+        "Provider": "MMI",
+        "ClaimAmount": 285869.01,
+        "Status": "Pending",
+        "BillingAmount": 292421,
+        "ClaimToBillingRatio": 0.9776,
+        "ClaimDiff": 6551.99,
+        "IsFullClaim": 0,
+        "TargetStatus": 0,
+        "ClaimAnomalyFlag": true,
+        "ClaimAnomalyReason": "Claim amount in extreme top 0.5% percentile (> 279,450 RWF)",
+        "ReviewWorkflow": "Hold Claim: Reconcile with Hospital Electronic Charge Sheet"
+      },
+      {
+        "ClaimID": "CLM000996",
+        "BillingID": "BIL001416",
+        "Provider": "MMI",
+        "ClaimAmount": 296675.86,
+        "Status": "Approved",
+        "BillingAmount": 296812,
+        "ClaimToBillingRatio": 0.9995,
+        "ClaimDiff": 136.14,
+        "IsFullClaim": 0,
+        "TargetStatus": 1,
+        "ClaimAnomalyFlag": true,
+        "ClaimAnomalyReason": "Claim amount in extreme top 0.5% percentile (> 279,450 RWF)",
+        "ReviewWorkflow": "Hold Claim: Reconcile with Hospital Electronic Charge Sheet"
+      },
+      {
+        "ClaimID": "CLM001207",
+        "BillingID": "BIL001690",
+        "Provider": "MMI",
+        "ClaimAmount": 292505.84,
+        "Status": "Approved",
+        "BillingAmount": 297574,
+        "ClaimToBillingRatio": 0.983,
+        "ClaimDiff": 5068.16,
+        "IsFullClaim": 0,
+        "TargetStatus": 1,
+        "ClaimAnomalyFlag": true,
+        "ClaimAnomalyReason": "Claim amount in extreme top 0.5% percentile (> 279,450 RWF)",
+        "ReviewWorkflow": "Hold Claim: Reconcile with Hospital Electronic Charge Sheet"
+      }
+    ]
+  },
+  "xai": {
+    "billing": {
+      "method": "SHAP TreeExplainer",
+      "top_features": [
+        {
+          "feature": "Age",
+          "mean_abs_shap": 2547.6213
+        },
+        {
+          "feature": "Month",
+          "mean_abs_shap": 2435.7327
+        },
+        {
+          "feature": "DoctorExperience",
+          "mean_abs_shap": 2288.3256
+        },
+        {
+          "feature": "DepartmentWorkload",
+          "mean_abs_shap": 1994.4079
+        },
+        {
+          "feature": "BMI",
+          "mean_abs_shap": 1927.3353
+        },
+        {
+          "feature": "MaritalStatus_Single",
+          "mean_abs_shap": 1818.586
+        },
+        {
+          "feature": "FacilityApptVolume",
+          "mean_abs_shap": 1150.9639
+        },
+        {
+          "feature": "MaritalStatus_Widowed",
+          "mean_abs_shap": 1103.7261
+        },
+        {
+          "feature": "PatientToDoctorRatio",
+          "mean_abs_shap": 926.2762
+        },
+        {
+          "feature": "Severity_Mild",
+          "mean_abs_shap": 880.2877
+        }
+      ]
+    },
+    "claims": {
+      "method": "SHAP TreeExplainer",
+      "top_features": [
+        {
+          "feature": "Provider_RSSB",
+          "mean_abs_shap": 0.0055
+        },
+        {
+          "feature": "ClaimDiff",
+          "mean_abs_shap": 0.0038
+        },
+        {
+          "feature": "BillingAmount",
+          "mean_abs_shap": 0.0036
+        },
+        {
+          "feature": "ClaimToBillingRatio",
+          "mean_abs_shap": 0.0033
+        },
+        {
+          "feature": "ClaimAmount",
+          "mean_abs_shap": 0.0008
+        },
+        {
+          "feature": "Provider_Radiant",
+          "mean_abs_shap": 0.0
+        },
+        {
+          "feature": "IsFullClaim",
+          "mean_abs_shap": 0.0
+        },
+        {
+          "feature": "Provider_Private",
+          "mean_abs_shap": 0.0
+        },
+        {
+          "feature": "Provider_MMI",
+          "mean_abs_shap": 0.0
+        }
+      ]
+    }
+  },
+  "los_assessment": {
+    "status": "UNSUPPORTED",
+    "reason": "Exhaustive inspection across all 27 supplied CSV files confirmed that no admission timestamps, discharge timestamps, bed assignment dates, or duration-of-stay columns exist. In strict adherence to assignment instructions ('Do not train a model if the target cannot be constructed correctly. Do not invent data, metrics, or columns'), this experiment is formally documented as unsupported by the source data rather than fabricated.",
+    "recommendation": "Deploy an Admission-Discharge-Transfer (ADT) tracking module in the Hospital Information System to record admission and discharge timestamps for future modeling."
+  }
+}

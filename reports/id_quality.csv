@@ -1,0 +1,13 @@
+table_name,key_column,total_rows,distinct_keys,is_unique,null_count,integrity_status
+Appointments,AppointmentID,5000,5000,True,0,Valid PK
+Billing,BillingID,60000,60000,True,0,Valid PK
+Billing,AppointmentID (FK),60000,60000,True,0,Valid PK
+Diagnoses,DiagnosisID,60000,60000,True,0,Valid PK
+Diagnoses,AppointmentID (FK),60000,60000,True,0,Valid PK
+Patients,PatientID,20000,20000,True,0,Valid PK
+Patient_Feedback,FeedbackID,21064,21064,True,0,Valid PK
+Patient_Feedback,AppointmentID (FK),21064,21064,True,0,Valid PK
+Insurance_Claims,ClaimID,42036,42036,True,0,Valid PK
+Insurance_Claims,BillingID (FK),42036,42036,True,0,Valid PK
+Payments,PaymentID,60000,60000,True,0,Valid PK
+Payments,BillingID (FK),60000,60000,True,0,Valid PK

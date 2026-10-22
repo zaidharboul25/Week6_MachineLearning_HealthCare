@@ -1,0 +1,28 @@
+file_name,rows,columns,size_bytes,encoding,duplicate_rows,candidate_pk,has_null_pk,missing_cells,missing_pct
+HC_Administrative_Staff.csv,80,10,8106,utf-8-sig,0,StaffID,False,0,0.0
+HC_Beds.csv,2000,3,54024,utf-8-sig,0,BedID,False,0,0.0
+HC_Billing.csv,60000,4,2220751,utf-8-sig,0,BillingID,False,0,0.0
+HC_Clinical_Transactions.xlsx - Appointments.csv,5000,7,310039,utf-8,0,AppointmentID,False,0,0.0
+HC_Departments.csv,200,3,5163,utf-8-sig,0,DepartmentID,False,0,0.0
+HC_Diagnoses.csv,60000,4,2431317,utf-8-sig,0,DiagnosisID,False,0,0.0
+HC_Districts.csv,30,3,747,utf-8,0,DistrictID,False,0,0.0
+HC_Doctor.csv,350,10,27479,utf-8-sig,0,StaffID,False,0,0.0
+HC_Facility_Master_Data.xlsx - Departments.csv,200,3,5158,utf-8,0,DepartmentID,False,0,0.0
+HC_Medical_Equipment.csv,200,4,8571,utf-8,0,EquipmentID,False,0,0.0
+HC_Medical_Specialties.csv,200,3,5479,utf-8-sig,0,SpecialtyID,False,0,0.0
+HC_Nurse.csv,700,10,49067,utf-8-sig,0,StaffID,False,0,0.0
+HC_Ownership_Types.csv,4,2,93,utf-8-sig,0,OwnershipID,False,0,0.0
+HC_Patient_Feedback.csv,21064,4,610386,utf-8-sig,0,FeedbackID,False,0,0.0
+HC_Patients.csv,20000,19,2786822,utf-8-sig,0,PatientID,False,5071,1.33
+HC_Payments.csv,60000,4,2151757,utf-8-sig,0,PaymentID,False,0,0.0
+HC_Provinces.csv,5,3,149,utf-8-sig,0,ProvinceID,False,0,0.0
+HC_Radiographer.csv,30,10,2611,utf-8-sig,0,StaffID,False,0,0.0
+HC_Revenue_Summary.csv,12,3,310,utf-8-sig,0,None,False,0,0.0
+HC_Rooms.csv,400,4,15884,utf-8-sig,0,RoomID,False,0,0.0
+HC_Sectors.csv,120,3,2567,utf-8-sig,0,SectorID,False,0,0.0
+HC_Services.csv,400,3,15679,utf-8-sig,0,ServiceID,False,0,0.0
+HC_Villages.csv,480,3,11447,utf-8-sig,0,VillageID,False,0,0.0
+HCCountries.csv,1,6,89,utf-8-sig,0,CountryID,False,0,0.0
+Insurance_Claims.csv,42036,5,1899268,utf-8-sig,0,ClaimID,False,0,0.0
+Laboratory_Scientist.csv,40,10,4094,utf-8-sig,0,StaffID,False,0,0.0
+Pharmacist.csv,50,10,4093,utf-8-sig,0,StaffID,False,0,0.0

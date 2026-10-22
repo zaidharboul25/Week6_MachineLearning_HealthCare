@@ -1,0 +1,61 @@
+# Git ignore file for HealthConnect Rwanda ML Engineering Project
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Healthcare Datasets and PII Protection (MANDATORY FOR HEALTHCARE GOVERNANCE)
+data/raw/
+data/interim/
+data/processed/
+datasets/
+*.xlsx
+*.zip
+*.parquet
+data/**/*.csv
+datasets/**/*.csv
+!reports/*.csv
+
+# Model artifacts and binaries
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/*.onnx
+artifacts/*.bin
+*.joblib
+*.pkl
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

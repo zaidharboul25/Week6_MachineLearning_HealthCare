@@ -1,0 +1,73 @@
+flowchart TD
+    subgraph DataSources ["1. Healthcare Information Systems & Data Sources"]
+        EHR["OpenMRS / Hospital EHR"]
+        HIS["Hospital Information System (HIS)"]
+        LIS["Laboratory Info System (LIS)"]
+        INS["Rwanda Insurance Portals (RSSB/MMI)"]
+    end
+
+    subgraph IngestionLayer ["2. Data Ingestion & Governance Gateway"]
+        Kafka["Streaming / Batch Ingestion Gateway"]
+        Validator["Data Quality & Schema Validator (Great Expectations)"]
+        DeID["PII Anonymization & De-identification Gateway"]
+    end
+
+    subgraph ProcessingLayer ["3. Data Engineering & Feature Store"]
+        CleanLake["Cleaned Analytical Data Lakehouse"]
+        FeatStore["Feast Feature Store (Demographic, Clinical, Operational)"]
+    end
+
+    subgraph MLOpsLayer ["4. MLOps & Model Training Lifecycle"]
+        TrainPipe["Scikit-Learn & XGBoost Training Pipeline"]
+        MLflow["MLflow Model Registry & Experiment Tracking"]
+        ArtifactStore["Secure Model Artifact Storage (S3 / Blob)"]
+    end
+
+    subgraph ServingLayer ["5. Model Serving & API Layer"]
+        FastAPIService["FastAPI Inference Microservice (Docker / Kubernetes)"]
+        Cache["Redis Prediction Cache"]
+        AuthGateway["OAuth2 / RBAC Security Gateway"]
+    end
+
+    subgraph IntegrationLayer ["6. Clinical & Executive Integration"]
+        DoctorUI["Clinical Triage & Decision Support UI"]
+        ClaimsUI["Insurance Adjudication Workflow Queue"]
+        BI["Executive Power BI Dashboards"]
+    end
+
+    subgraph MonitoringGov ["7. Continuous Governance & Monitoring"]
+        Evidently["Evidently AI / Drift & Data Quality Monitor"]
+        Prometheus["Prometheus & Grafana Performance Telemetry"]
+        HumanReview["Human-in-the-Loop Clinical Review Committee"]
+    end
+
+    %% Connections
+    EHR --> Kafka
+    HIS --> Kafka
+    LIS --> Kafka
+    INS --> Kafka
+
+    Kafka --> Validator
+    Validator --> DeID
+    DeID --> CleanLake
+    CleanLake --> FeatStore
+
+    FeatStore --> TrainPipe
+    TrainPipe --> MLflow
+    MLflow --> ArtifactStore
+    ArtifactStore --> FastAPIService
+
+    FeatStore --> FastAPIService
+    AuthGateway --> FastAPIService
+    FastAPIService <--> Cache
+
+    FastAPIService --> DoctorUI
+    FastAPIService --> ClaimsUI
+    CleanLake --> BI
+
+    FastAPIService --> Prometheus
+    FastAPIService --> Evidently
+    Evidently --> RetrainTrigger["Automated Retraining Trigger"]
+    RetrainTrigger --> TrainPipe
+    ClaimsUI --> HumanReview
+    DoctorUI --> HumanReview

@@ -1,0 +1,15 @@
+feature_name,dataset,type,description
+Amount,billing_analytical,Target (Numeric),Total medical billing amount for the appointment encounter in Rwandan Francs (RWF).
+AgeGroup,billing/satisfaction/risk,Engineered (Categorical),"Standardized demographic tier (<18, 18-35, 36-50, 51-65, >65) derived from patient Age."
+BMICategory,billing/satisfaction/risk,Engineered (Categorical),"WHO Body Mass Index classification: Underweight, Normal, Overweight, Obese."
+HasChronicCondition,billing/satisfaction/risk,Engineered (Binary),"Binary flag indicating diagnosis of Diabetes, Hypertension, or Asthma."
+DepartmentWorkload,billing/satisfaction,Engineered (Numeric),Encounter volume handled by clinical department.
+FacilityApptVolume,billing/facility,Engineered (Numeric),Annual patient appointment load per healthcare facility.
+PatientToDoctorRatio,billing/facility,Engineered (Numeric),Operational ratio of patient encounters to active medical doctors.
+BedToDoctorRatio,billing/facility,Engineered (Numeric),Hospital infrastructure capacity metric: beds per doctor.
+ClaimToBillingRatio,claims_analytical,Engineered (Numeric),Ratio of requested insurance claim amount to invoiced billing amount.
+ClaimDiff,claims_analytical,Engineered (Numeric),Absolute difference between invoiced billing amount and requested claim.
+TargetStatus,claims_analytical,Target (Binary),"Insurance claim approval status: 1 = Approved, 0 = Pending."
+SatisfactionClass,satisfaction_analytical,Target (Categorical),"Patient survey outcome tier: Low (1-2), Medium (3), High (4-5)."
+HighRiskTarget,risk_analytical,Target (Binary),"Documented clinical risk stratification based on multimorbidity, age, and severe history."
+IsEmergencyVisit,billing_analytical,Target / Feature (Binary),"Encounter urgency indicator: 1 = Emergency, 0 = Routine (Consultation / Follow-up)."
