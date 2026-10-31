@@ -69,9 +69,11 @@ def clean_billing(df_billing: pd.DataFrame) -> pd.DataFrame:
     - Validates non-negative billing
     """
     df = df_billing.copy()
-    df["Amount"] = pd.to_numeric(df["Amount"], errors="coerce")
-    df["Amount"] = df["Amount"].clip(lower=0)
-    df["Status"] = df["Status"].astype(str).str.strip()
+    if "Amount" in df.columns:
+        df["Amount"] = pd.to_numeric(df["Amount"], errors="coerce")
+        df["Amount"] = df["Amount"].clip(lower=0)
+    if "Status" in df.columns:
+        df["Status"] = df["Status"].astype(str).str.strip()
     return df
 
 def clean_diagnoses(df_diagnoses: pd.DataFrame) -> pd.DataFrame:
@@ -80,8 +82,10 @@ def clean_diagnoses(df_diagnoses: pd.DataFrame) -> pd.DataFrame:
     - Normalizes diagnosis names and severity levels
     """
     df = df_diagnoses.copy()
-    df["Diagnosis"] = df["Diagnosis"].astype(str).str.strip()
-    df["Severity"] = df["Severity"].astype(str).str.strip()
+    if "Diagnosis" in df.columns:
+        df["Diagnosis"] = df["Diagnosis"].astype(str).str.strip()
+    if "Severity" in df.columns:
+        df["Severity"] = df["Severity"].astype(str).str.strip()
     return df
 
 def clean_claims(df_claims: pd.DataFrame) -> pd.DataFrame:
@@ -89,9 +93,12 @@ def clean_claims(df_claims: pd.DataFrame) -> pd.DataFrame:
     Clean insurance claims records.
     """
     df = df_claims.copy()
-    df["ClaimAmount"] = pd.to_numeric(df["ClaimAmount"], errors="coerce").clip(lower=0)
-    df["Provider"] = df["Provider"].astype(str).str.strip()
-    df["Status"] = df["Status"].astype(str).str.strip()
+    if "ClaimAmount" in df.columns:
+        df["ClaimAmount"] = pd.to_numeric(df["ClaimAmount"], errors="coerce").clip(lower=0)
+    if "Provider" in df.columns:
+        df["Provider"] = df["Provider"].astype(str).str.strip()
+    if "Status" in df.columns:
+        df["Status"] = df["Status"].astype(str).str.strip()
     return df
 
 def clean_feedback(df_feedback: pd.DataFrame) -> pd.DataFrame:
@@ -101,6 +108,10 @@ def clean_feedback(df_feedback: pd.DataFrame) -> pd.DataFrame:
     - Standardizes comments
     """
     df = df_feedback.copy()
-    df["Rating"] = pd.to_numeric(df["Rating"], errors="coerce").fillna(3).astype(int).clip(1, 5)
-    df["Comment"] = df["Comment"].astype(str).str.strip()
+    if "Rating" in df.columns:
+        df["Rating"] = pd.to_numeric(df["Rating"], errors="coerce").fillna(3).astype(int).clip(1, 5)
+    if "Comment" in df.columns:
+        df["Comment"] = df["Comment"].astype(str).str.strip()
+    elif "Comments" in df.columns:
+        df["Comment"] = df["Comments"].astype(str).str.strip()
     return df

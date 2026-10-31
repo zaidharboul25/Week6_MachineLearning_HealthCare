@@ -1,0 +1,10 @@
+Step,Component,Objective,Expected,Observed,Status
+1,Data Ingestion,Prepare synthetic healthcare validation batch,Ingest 3 claims and 1 encounter without PII,"Ingested 3 claims, 3 billing",PASS
+2,Schema Validator,Validate columns and types against domain model contracts,Pass schema checks with 0 errors,Validated claims & billing schemas with 0 errors,PASS
+3,Feature Engineering,Compute financial ratios and indicator flags,"Compute ClaimToBillingRatio, ClaimDiff, IsFullClaim","Computed ratios: [0.85, 1.091, 0.9]",PASS
+4,Model Deserialization,Load serialized production joblib artifacts,"Load claims, billing, triage, satisfaction pipelines",All 4 pipelines loaded without error,PASS
+5,Model Inference,Execute inference for classification and regression,Valid predictions and probability distributions,"Claims: [0, 0, 1], Billing: 157,997.85 RWF",PASS
+6,Output Assertion,Assert outputs conform to business and mathematical bounds,"Billing > 0, binary claims in {0,1}, valid 95% CI","Billing > 0, CI=[0, 320,664]",PASS
+7,FastAPI Service,Test live HTTP serving layer via TestClient,Status 200 with structured JSON prediction schema,All endpoints responded 200 OK with valid schema,PASS
+8,Fault Tolerance,Reject invalid/malformed inputs with controlled exceptions,"HealthConnectSchemaError raised, API returns 422 Unprocessable",Exceptions raised and caught as expected; API returned 422,PASS
+9,Reproducibility,Verify zero drift across consecutive prediction runs,Prediction difference < 1e-6 across repeated inferences,Max drift = 0.00e+00 across 5 consecutive runs,PASS

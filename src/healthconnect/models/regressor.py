@@ -14,6 +14,7 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.dummy import DummyRegressor
@@ -90,10 +91,18 @@ def run_billing_regression_experiments(
         X, y, test_size=0.2, random_state=RANDOM_SEED
     )
 
+    numeric_transformer = Pipeline(steps=[
+        ("imputer", SimpleImputer(strategy="median")),
+        ("scaler", StandardScaler())
+    ])
+    categorical_transformer = Pipeline(steps=[
+        ("imputer", SimpleImputer(strategy="most_frequent")),
+        ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False))
+    ])
     preprocessor = ColumnTransformer(
         transformers=[
-            ("num", StandardScaler(), num_features),
-            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), cat_features),
+            ("num", numeric_transformer, num_features),
+            ("cat", categorical_transformer, cat_features),
         ]
     )
 

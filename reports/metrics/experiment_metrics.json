@@ -8,35 +8,35 @@
           "precision": 0.5,
           "recall": 0.003,
           "f1": 0.006,
-          "roc_auc": 0.4802
+          "roc_auc": 0.4786
         },
         "Decision Tree": {
-          "accuracy": 0.649,
-          "precision": 0.3765,
-          "recall": 0.097,
-          "f1": 0.1542,
-          "roc_auc": 0.5357
+          "accuracy": 0.652,
+          "precision": 0.3714,
+          "recall": 0.0788,
+          "f1": 0.13,
+          "roc_auc": 0.5373
         },
         "Random Forest": {
-          "accuracy": 0.67,
+          "accuracy": 0.669,
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
-          "roc_auc": 0.4814
+          "roc_auc": 0.4829
         },
         "Gradient Boosting": {
-          "accuracy": 0.645,
-          "precision": 0.2727,
-          "recall": 0.0455,
-          "f1": 0.0779,
-          "roc_auc": 0.4736
+          "accuracy": 0.653,
+          "precision": 0.3396,
+          "recall": 0.0545,
+          "f1": 0.094,
+          "roc_auc": 0.4755
         },
         "XGBoost": {
-          "accuracy": 0.654,
-          "precision": 0.3333,
-          "recall": 0.0485,
-          "f1": 0.0847,
-          "roc_auc": 0.4842
+          "accuracy": 0.65,
+          "precision": 0.25,
+          "recall": 0.0303,
+          "f1": 0.0541,
+          "roc_auc": 0.4786
         }
       }
     },
@@ -124,39 +124,39 @@
       "best_algorithm": "Decision Tree",
       "algorithms": {
         "Logistic Regression": {
-          "accuracy": 0.8682,
-          "precision": 0.8635,
-          "recall": 0.8902,
-          "f1": 0.8767,
-          "roc_auc": 0.939
+          "accuracy": 0.7532,
+          "precision": 0.7626,
+          "recall": 0.7709,
+          "f1": 0.7667,
+          "roc_auc": 0.8367
         },
         "Decision Tree": {
-          "accuracy": 0.9563,
-          "precision": 0.9949,
-          "recall": 0.9216,
-          "f1": 0.9568,
-          "roc_auc": 0.9936
+          "accuracy": 0.82,
+          "precision": 0.8237,
+          "recall": 0.837,
+          "f1": 0.8303,
+          "roc_auc": 0.9302
         },
         "Random Forest": {
-          "accuracy": 0.9533,
-          "precision": 0.98,
-          "recall": 0.9301,
-          "f1": 0.9544,
-          "roc_auc": 0.9939
+          "accuracy": 0.8105,
+          "precision": 0.8735,
+          "recall": 0.7481,
+          "f1": 0.8059,
+          "roc_auc": 0.9279
         },
         "Gradient Boosting": {
-          "accuracy": 0.9557,
-          "precision": 0.9908,
-          "recall": 0.9244,
-          "f1": 0.9565,
-          "roc_auc": 0.9936
+          "accuracy": 0.819,
+          "precision": 0.8423,
+          "recall": 0.807,
+          "f1": 0.8243,
+          "roc_auc": 0.9318
         },
         "XGBoost": {
-          "accuracy": 0.956,
-          "precision": 0.9944,
-          "recall": 0.9216,
-          "f1": 0.9566,
-          "roc_auc": 0.9942
+          "accuracy": 0.817,
+          "precision": 0.8423,
+          "recall": 0.8023,
+          "f1": 0.8218,
+          "roc_auc": 0.9309
         }
       }
     }
@@ -169,28 +169,28 @@
       "mape": 113.97
     },
     "Linear Regression (Ridge)": {
-      "rmse": 83280.49,
-      "mae": 71360.72,
-      "r2": -0.0368,
-      "mape": 114.92
+      "rmse": 83308.78,
+      "mae": 71375.14,
+      "r2": -0.0375,
+      "mape": 114.96
     },
     "Random Forest Regressor": {
-      "rmse": 82993.31,
-      "mae": 70959.79,
-      "r2": -0.0297,
-      "mape": 114.27
+      "rmse": 82984.98,
+      "mae": 70909.66,
+      "r2": -0.0294,
+      "mape": 114.42
     },
     "Gradient Boosting Regressor": {
-      "rmse": 84641.48,
-      "mae": 71690.13,
-      "r2": -0.071,
-      "mape": 116.7
+      "rmse": 84465.12,
+      "mae": 71925.93,
+      "r2": -0.0665,
+      "mape": 116.47
     },
     "XGBoost Regressor": {
-      "rmse": 84304.58,
-      "mae": 71647.73,
-      "r2": -0.0624,
-      "mape": 116.66
+      "rmse": 84443.36,
+      "mae": 71560.35,
+      "r2": -0.0659,
+      "mape": 116.94
     }
   },
   "clustering": {
@@ -533,43 +533,43 @@
       "top_features": [
         {
           "feature": "Age",
-          "mean_abs_shap": 2547.6213
+          "mean_abs_shap": 2523.992
         },
         {
           "feature": "Month",
-          "mean_abs_shap": 2435.7327
+          "mean_abs_shap": 2400.4922
         },
         {
           "feature": "DoctorExperience",
-          "mean_abs_shap": 2288.3256
+          "mean_abs_shap": 2300.9029
         },
         {
           "feature": "DepartmentWorkload",
-          "mean_abs_shap": 1994.4079
+          "mean_abs_shap": 2053.0685
         },
         {
           "feature": "BMI",
-          "mean_abs_shap": 1927.3353
+          "mean_abs_shap": 1934.5044
         },
         {
           "feature": "MaritalStatus_Single",
-          "mean_abs_shap": 1818.586
+          "mean_abs_shap": 1839.8375
         },
         {
           "feature": "FacilityApptVolume",
-          "mean_abs_shap": 1150.9639
+          "mean_abs_shap": 1213.7608
         },
         {
           "feature": "MaritalStatus_Widowed",
-          "mean_abs_shap": 1103.7261
+          "mean_abs_shap": 1138.3838
         },
         {
           "feature": "PatientToDoctorRatio",
-          "mean_abs_shap": 926.2762
+          "mean_abs_shap": 936.9057
         },
         {
           "feature": "Severity_Mild",
-          "mean_abs_shap": 880.2877
+          "mean_abs_shap": 891.2817
         }
       ]
     },

@@ -18,6 +18,7 @@ import logging
 from typing import Dict, Any, List, Optional
 import joblib
 import pandas as pd
+import numpy as np
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -123,6 +124,47 @@ class BillingPredictionResponse(BaseModel):
     confidence_interval_upper_rwf: float
     notes: str
 
+class TriagePredictionRequest(BaseModel):
+    Age: int = Field(..., ge=0, le=120)
+    BMI: float = Field(..., ge=10.0, le=70.0)
+    DoctorExperience: int = Field(..., ge=0, le=50)
+    FacilityApptVolume: int = Field(..., ge=0)
+    PatientToDoctorRatio: float = Field(..., ge=0)
+    Gender: str = Field(...)
+    MaritalStatus: str = Field(...)
+    Occupation: str = Field(...)
+    Education: str = Field(...)
+    InsuranceID: str = Field(...)
+    ChronicCondition: str = Field(...)
+    Severity: str = Field(...)
+    DepartmentName: str = Field(...)
+    ProvinceName: str = Field(...)
+
+class TriagePredictionResponse(BaseModel):
+    prediction_label: str
+    is_emergency: int
+    probability_emergency: Optional[float]
+    recommendation: str
+
+class SatisfactionPredictionRequest(BaseModel):
+    Age: int = Field(..., ge=0, le=120)
+    BMI: float = Field(..., ge=10.0, le=70.0)
+    Amount: float = Field(..., ge=0)
+    DoctorExperience: int = Field(..., ge=0, le=50)
+    PatientToDoctorRatio: float = Field(..., ge=0)
+    DepartmentWorkload: int = Field(..., ge=0)
+    VisitType: str = Field(...)
+    Severity: str = Field(...)
+    Diagnosis: str = Field(...)
+    Gender: str = Field(...)
+    InsuranceID: str = Field(...)
+    DepartmentName: str = Field(...)
+
+class SatisfactionPredictionResponse(BaseModel):
+    predicted_satisfaction_tier: str
+    predicted_code: int
+    recommendation: str
+
 # ----------------------------------------------------------------------
 # API Endpoints
 # ----------------------------------------------------------------------
@@ -193,4 +235,57 @@ def predict_encounter_billing(req: BillingPredictionRequest):
         confidence_interval_lower_rwf=lower,
         confidence_interval_upper_rwf=upper,
         notes="Forecasted total encounter cost before insurance co-pay application."
+    )
+
+@app.post("/predict/triage", response_model=TriagePredictionResponse)
+def predict_admission_triage(req: TriagePredictionRequest):
+    """Predict acute care triage status (Emergency vs Routine encounter)."""
+    if "triage" not in models:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Triage model unavailable")
+
+    input_df = pd.DataFrame([req.model_dump()])
+    pipe = models["triage"]
+    pred = int(pipe.predict(input_df)[0])
+    
+    proba = None
+    if hasattr(pipe, "predict_proba"):
+        try:
+            proba = round(float(pipe.predict_proba(input_df)[0][1]), 4)
+        except Exception:
+            proba = None
+
+    label = "Emergency" if pred == 1 else "Routine"
+    rec = "Expedite to acute clinical resuscitation bay" if pred == 1 else "Direct to outpatient standard consultation queue"
+
+    return TriagePredictionResponse(
+        prediction_label=label,
+        is_emergency=pred,
+        probability_emergency=proba,
+        recommendation=rec
+    )
+
+@app.post("/predict/satisfaction", response_model=SatisfactionPredictionResponse)
+def predict_patient_satisfaction(req: SatisfactionPredictionRequest):
+    """Predict patient satisfaction tier (Low, Medium, High)."""
+    if "satisfaction" not in models:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Satisfaction model unavailable")
+
+    input_df = pd.DataFrame([req.model_dump()])
+    pipe = models["satisfaction"]
+    pred = pipe.predict(input_df)[0]
+    
+    tier_map = {0: "Low", 1: "Medium", 2: "High"}
+    if isinstance(pred, (int, np.integer)):
+        tier_label = tier_map.get(int(pred), str(pred))
+        code = int(pred)
+    else:
+        tier_label = str(pred)
+        code = 1
+
+    rec = "Engage patient advocacy liaison for experience follow-up" if tier_label == "Low" else "Standard discharge communication protocol"
+
+    return SatisfactionPredictionResponse(
+        predicted_satisfaction_tier=tier_label,
+        predicted_code=code,
+        recommendation=rec
     )
